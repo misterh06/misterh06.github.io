@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirection...</title>
+  <script>
+    // Extraire le paramètre "code" de l'URL
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+    
+    window.onload = function() {
+      const code = getQueryParam("code");
+      if (code) {
+        // Redirige vers votre application via le schéma personnalisé
+        window.location.href = "runningcoachai://callback?code=" + code;
+      } else {
+        document.body.innerHTML = "Code non trouvé dans l'URL.";
+      }
+    }
+  </script>
+</head>
+<body>
+  <p>Redirection...</p>
+</body>
+</html>
